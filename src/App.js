@@ -3,6 +3,7 @@ import Header from "./componets/Header";
 import styled from '@emotion/styled'
 import Formulario from "./componets/Formulario";
 import Resumen from "./componets/Resumen";
+import Resultado from "./componets/Resultado";
 
 const Contenedor = styled.div`
   max-width: 600px;
@@ -35,6 +36,10 @@ function App() {
               cotizador={cotizador}
             />
           }
+
+          <Resultado 
+            cotizacion={cotizacion}
+            />          
           
         </ContenedorFormulario>
     </Contenedor>      
