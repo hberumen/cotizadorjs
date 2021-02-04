@@ -51,7 +51,7 @@ const Error = styled.div`
     margin-bottom: 2rem;
 `    
 
-const Formulario = ({updateResumen}) => {
+const Formulario = ({updateResumen, updateCargando}) => {
 
     const valida = values =>{
         
@@ -103,11 +103,16 @@ const Formulario = ({updateResumen}) => {
             resultado = calcularMarca(marca) * resultado
             const incrementoPlan = obtenerPlan(plan)
             resultado = parseFloat( incrementoPlan * resultado).toFixed(2)
+            
+            updateCargando(true)
 
-            updateResumen({
-                cotizacion: resultado,
-                cotizador: otrosDatos
-            })
+            setTimeout(() => {
+                updateCargando(false)
+                updateResumen({
+                    cotizacion: resultado,
+                    cotizador: otrosDatos
+                })
+            }, 3000);            
             
             return
         }        

@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Formulario from "./componets/Formulario";
 import Resumen from "./componets/Resumen";
 import Resultado from "./componets/Resultado";
+import Spinner from "./componets/Spinner";
 
 const Contenedor = styled.div`
   max-width: 600px;
@@ -18,6 +19,7 @@ const ContenedorFormulario = styled.div`
 function App() {
 
   const [resumen, updateResumen] = useState({})
+  const [cargando, updateCargando] = useState(false)
   const { cotizacion, cotizador } = resumen
 
   return (
@@ -29,17 +31,13 @@ function App() {
         <ContenedorFormulario>
           <Formulario 
             updateResumen={updateResumen}
+            updateCargando={updateCargando}
           />
 
-          {
-            cotizacion && <Resumen 
-              cotizador={cotizador}
-            />
-          }
-
-          <Resultado 
-            cotizacion={cotizacion}
-            />          
+          { cargando ? <Spinner />: null }   
+          { cotizacion && <Resumen cotizador={cotizador}/>}
+          {!cargando ? <Resultado cotizacion={cotizacion}/>  : null}
+                   
           
         </ContenedorFormulario>
     </Contenedor>      
