@@ -51,7 +51,7 @@ const Error = styled.div`
     margin-bottom: 2rem;
 `    
 
-const Formulario = () => {
+const Formulario = ({updateResumen}) => {
 
     const valida = values =>{
         
@@ -104,7 +104,11 @@ const Formulario = () => {
             const incrementoPlan = obtenerPlan(plan)
             resultado = parseFloat( incrementoPlan * resultado).toFixed(2)
 
-            console.log(resultado)
+            updateResumen({
+                cotizacion: resultado,
+                cotizador: otrosDatos
+            })
+            
             return
         }        
     }

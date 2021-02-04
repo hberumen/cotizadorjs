@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import Header from "./componets/Header";
 import styled from '@emotion/styled'
 import Formulario from "./componets/Formulario";
+import Resumen from "./componets/Resumen";
 
 const Contenedor = styled.div`
   max-width: 600px;
@@ -13,6 +15,10 @@ const ContenedorFormulario = styled.div`
 `
 
 function App() {
+
+  const [resumen, updateResumen] = useState({})
+  const { cotizacion, cotizador } = resumen
+
   return (
     <Contenedor>
         <Header 
@@ -20,7 +26,16 @@ function App() {
         />
 
         <ContenedorFormulario>
-          <Formulario />
+          <Formulario 
+            updateResumen={updateResumen}
+          />
+
+          {
+            cotizacion && <Resumen 
+              cotizador={cotizador}
+            />
+          }
+          
         </ContenedorFormulario>
     </Contenedor>      
   );
