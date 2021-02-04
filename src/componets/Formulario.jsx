@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
+import PropTypes from "prop-types";
 import { obtenerDiferenciaYear, calcularMarca, obtenerPlan } from '../helper'
 
 const Campo = styled.div`
@@ -183,6 +184,11 @@ const Formulario = ({updateResumen, updateCargando}) => {
                 </Boton>
         </form>
     )
+}
+
+Formulario.propTypes = {
+    updateResumen: PropTypes.func.isRequired, 
+    updateCargando: PropTypes.func.isRequired, 
 }
 
 export default Formulario

@@ -36,7 +36,7 @@ function App() {
 
           { cargando ? <Spinner />: null }   
           { cotizacion && <Resumen cotizador={cotizador}/>}
-          {!cargando ? <Resultado cotizacion={cotizacion}/>  : null}
+          {!cargando ? <Resultado cotizacion={Number(cotizacion)}/>  : null}
                    
           
         </ContenedorFormulario>

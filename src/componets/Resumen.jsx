@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { primeraMayuscula } from '../helper'
+import PropTypes from "prop-types";
 
 const ContenedorResumen = styled.div`
     padding: 1rem;
@@ -22,6 +23,10 @@ const Resumen = ({cotizador}) => {
             </ul>
         </ContenedorResumen>
     )
+}
+
+Resumen.propTypes = {
+    cotizador: PropTypes.object.isRequired    
 }
 
 export default Resumen
